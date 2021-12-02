@@ -1,31 +1,19 @@
 package day1;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import parser.AdventParser;
 
-public class Main {
+import java.util.List;
+
+public class Day1 {
+
+    private static AdventParser ap = new AdventParser("src/day1/input.txt");
 
     public static void main(String[] args) {
 
-        try {
+        List<Integer> input = ap.day1();
 
-            File f = new File("src/day1/input.txt");
-            Scanner s = new Scanner(f);
-            List<Integer> l = new ArrayList<>();
-
-            while (s.hasNextLine()) {
-                l.add(Integer.parseInt(s.nextLine()));
-            }
-
-            System.out.println("Solution day1 (part 1): " + part1(l));
-            System.out.println("Solution day1 (part 2): " + part2(l));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        System.out.println("Solution day1 (part 1): " + part1(input));
+        System.out.println("Solution day1 (part 2): " + part2(input));
     }
 
     private static int part1(List<Integer> l) {
