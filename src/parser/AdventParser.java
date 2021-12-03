@@ -52,4 +52,15 @@ public class AdventParser {
         return l;
     }
 
+    public List<String> day3() {
+
+        List<String> l = new ArrayList<>();
+
+        while(s.hasNextLine()) {
+            l.add(s.nextLine());
+        }
+
+        return l;
+    }
+
 }
