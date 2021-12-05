@@ -1,10 +1,12 @@
 package parser;
 
 import day2.Command;
+import day4.BingoChart;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -56,11 +58,45 @@ public class AdventParser {
 
         List<String> l = new ArrayList<>();
 
-        while(s.hasNextLine()) {
+        while (s.hasNextLine()) {
             l.add(s.nextLine());
         }
 
         return l;
     }
+
+    public List<Integer> day4DrawOrder() {
+
+        List<Integer> drawOrder = new ArrayList<>();
+        Arrays.stream(s.nextLine().split(",")).mapToInt(num -> Integer.parseInt(num)).forEach(num -> drawOrder.add(num));
+
+        return drawOrder;
+    }
+
+    public List<BingoChart> day4BingoCharts() {
+
+        List<BingoChart> charts = new ArrayList<>();
+        int size = 5;
+        String tmp;
+
+        while (s.hasNextLine()) {
+
+            tmp = s.nextLine();
+
+            if(!tmp.equals("")) {
+
+                int[][] plane = new int[5][5];
+                plane[0] = Arrays.stream(tmp.split("\\s+")).filter(num -> !num.equals("")).mapToInt(Integer::parseInt).toArray();;
+
+                for (int i = 1; i < size; i++) {
+                    plane[i] = Arrays.stream(s.nextLine().split("\\s+")).filter(num -> !num.equals("")).mapToInt(Integer::parseInt).toArray();
+                }
+                charts.add(new BingoChart(plane));
+            }
+        }
+
+        return charts;
+    }
+
 
 }
