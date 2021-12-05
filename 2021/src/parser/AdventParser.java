@@ -2,6 +2,7 @@ package parser;
 
 import day2.Command;
 import day4.BingoChart;
+import day5.Line;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -83,10 +84,10 @@ public class AdventParser {
 
             tmp = s.nextLine();
 
-            if(!tmp.equals("")) {
+            if (!tmp.equals("")) {
 
                 int[][] plane = new int[5][5];
-                plane[0] = Arrays.stream(tmp.split("\\s+")).filter(num -> !num.equals("")).mapToInt(Integer::parseInt).toArray();;
+                plane[0] = Arrays.stream(tmp.split("\\s+")).filter(num -> !num.equals("")).mapToInt(Integer::parseInt).toArray();
 
                 for (int i = 1; i < size; i++) {
                     plane[i] = Arrays.stream(s.nextLine().split("\\s+")).filter(num -> !num.equals("")).mapToInt(Integer::parseInt).toArray();
@@ -98,5 +99,18 @@ public class AdventParser {
         return charts;
     }
 
+    public List<Line> day5() {
+
+        List<Line> lines = new ArrayList<>();
+        int[] tmp;
+
+        while (s.hasNextLine()) {
+
+            tmp = Arrays.stream(s.nextLine().split(",|->")).map(String::trim).mapToInt(Integer::parseInt).toArray();
+            lines.add(new Line(tmp[0], tmp[1], tmp[2], tmp[3]));
+        }
+
+        return lines;
+    }
 
 }
