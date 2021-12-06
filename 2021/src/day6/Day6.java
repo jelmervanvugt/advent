@@ -60,6 +60,6 @@ public class Day6 {
     }
 
     private static long part2(HashMap<Integer, Long> input) {
-        return part1(input, 356);
+        return part1(input, 256);
     }
 }
