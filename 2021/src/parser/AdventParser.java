@@ -6,10 +6,9 @@ import day5.Line;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 
 public class AdventParser {
 
@@ -113,4 +112,26 @@ public class AdventParser {
         return lines;
     }
 
+    public HashMap<Integer, Long> day6() {
+
+        List<Integer> input = new ArrayList<>();
+        Arrays.stream(s.nextLine().split(",")).mapToInt(Integer::parseInt).forEach(input::add);
+
+        HashMap<Integer, Long> hm = new HashMap<>();
+
+        hm.put(0, 0L);
+        hm.put(1, 0L);
+        hm.put(2, 0L);
+        hm.put(3, 0L);
+        hm.put(4, 0L);
+        hm.put(5, 0L);
+        hm.put(6, 0L);
+        hm.put(7, 0L);
+        hm.put(8, 0L);
+
+        for (Integer i : input) {
+            hm.put(i, hm.get(i) + 1);
+        }
+        return hm;
+    }
 }
