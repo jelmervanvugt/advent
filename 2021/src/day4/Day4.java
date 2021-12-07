@@ -58,5 +58,4 @@ public class Day4 {
         return 0;
     }
 
-
 }

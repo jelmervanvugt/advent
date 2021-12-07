@@ -80,4 +80,5 @@ public class BingoChart {
     public boolean getIsFinished() {
         return isFinished;
     }
+
 }

@@ -48,18 +48,18 @@ public class Day6 {
     }
 
     private static long calcTotal(HashMap<Integer, Long> input) {
-        return input.get(0) +
-                input.get(1) +
-                input.get(2) +
-                input.get(3) +
-                input.get(4) +
-                input.get(5) +
-                input.get(6) +
-                input.get(7) +
-                input.get(8);
+
+        long total = 0;
+
+        for (Integer k : input.keySet()) {
+            total += input.get(k);
+        }
+
+        return total;
     }
 
     private static long part2(HashMap<Integer, Long> input) {
         return part1(input, 256);
     }
+
 }

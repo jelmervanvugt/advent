@@ -92,5 +92,4 @@ public class Day5 {
         return part1(lines, false);
     }
 
-
 }

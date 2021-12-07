@@ -25,4 +25,5 @@ public class Line {
         yEnd = tmpY;
         }
     }
+
 }
