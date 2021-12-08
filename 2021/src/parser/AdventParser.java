@@ -3,10 +3,12 @@ package parser;
 import day2.Command;
 import day4.BingoChart;
 import day5.Line;
+import day8.Segment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AdventParser {
 
@@ -117,7 +119,7 @@ public class AdventParser {
 
         HashMap<Integer, Long> hm = new HashMap<>();
 
-        for(int i = 0; i < 9; i++) {
+        for (int i = 0; i < 9; i++) {
             hm.put(i, 0L);
         }
 
@@ -137,5 +139,23 @@ public class AdventParser {
         }
 
         return hm;
+    }
+
+    public List<Segment> day8() {
+
+        List<Segment> input = new ArrayList<>();
+        String[] tmp;
+
+        while (s.hasNextLine()) {
+            tmp = s.nextLine().split("\\|");
+            input.add(
+                    new Segment(
+                            Arrays.stream(tmp[0].split("\\s+")).collect(Collectors.toList()),
+                            Arrays.stream(tmp[1].split("\\s+")).filter(str -> !str.equals("")).collect(Collectors.toList())
+                    )
+            );
+        }
+
+        return input;
     }
 }
