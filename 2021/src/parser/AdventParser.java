@@ -158,4 +158,25 @@ public class AdventParser {
 
         return input;
     }
+
+    public int[][] day9() {
+
+        int[][] input = new int[100][100];
+        int x = 0;
+
+        while(s.hasNextLine()) {
+
+            char[] tmp = s.nextLine().toCharArray();
+
+            for(int y = 0; y < input[x].length; y++) {
+                input[x][y] = Integer.parseInt(String.valueOf(tmp[y]));
+            }
+
+            x++;
+        }
+
+
+        return input;
+    }
+
 }
