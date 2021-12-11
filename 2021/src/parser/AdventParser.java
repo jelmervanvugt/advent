@@ -1,5 +1,6 @@
 package parser;
 
+import day10.Syntax;
 import day2.Command;
 import day4.BingoChart;
 import day5.Line;
@@ -137,7 +138,6 @@ public class AdventParser {
         for (int i : tmp) {
             hm.merge(i, 1, Integer::sum);
         }
-
         return hm;
     }
 
@@ -155,7 +155,6 @@ public class AdventParser {
                     )
             );
         }
-
         return input;
     }
 
@@ -164,19 +163,43 @@ public class AdventParser {
         int[][] input = new int[100][100];
         int x = 0;
 
-        while(s.hasNextLine()) {
+        while (s.hasNextLine()) {
 
             char[] tmp = s.nextLine().toCharArray();
 
-            for(int y = 0; y < input[x].length; y++) {
+            for (int y = 0; y < input[x].length; y++) {
                 input[x][y] = Integer.parseInt(String.valueOf(tmp[y]));
             }
 
             x++;
         }
-
-
         return input;
     }
 
+    public List<Syntax> day10() {
+
+        List<Syntax> input = new ArrayList<>();
+
+        while (s.hasNextLine()) {
+            input.add(new Syntax(s.nextLine().toCharArray()));
+        }
+        return input;
+    }
+
+    public int[][] day11() {
+
+        int[][] input = new int[10][10];
+        int x = 0;
+
+        while(s.hasNextLine()) {
+
+           char[] tmp = s.nextLine().toCharArray();
+
+           for(int y = 0; y < tmp.length; y++) {
+               input[x][y] = Integer.parseInt(String.valueOf(tmp[y]));
+           }
+           x++;
+        }
+        return input;
+    }
 }
