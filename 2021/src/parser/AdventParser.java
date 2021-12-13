@@ -3,6 +3,8 @@ package parser;
 import day10.Syntax;
 import day12.Graph;
 import day12.Node;
+import day13.Fold;
+import day13.Origami;
 import day2.Command;
 import day4.BingoChart;
 import day5.Line;
@@ -215,4 +217,33 @@ public class AdventParser {
         }
         return graph;
     }
+
+    public Origami day13() {
+
+        Origami origami = new Origami();
+
+        String input = "";
+
+        while (s.hasNextLine()) {
+
+            input = s.nextLine();
+
+            if(input.equals("")) break;
+
+            int[] tmp = Arrays.stream(input.split(",")).mapToInt(Integer::parseInt).toArray();
+            origami.plane[tmp[1]][tmp[0]] = 1;
+        }
+
+
+        while(s.hasNextLine()) {
+
+            String[] tmp = Arrays.stream(s.nextLine().split("\\s+")[2].split("=")).toArray(String[]::new);
+            origami.folds.add(new Fold(tmp[0], Integer.parseInt(tmp[1])));
+
+        }
+
+
+        return origami;
+    }
+
 }
