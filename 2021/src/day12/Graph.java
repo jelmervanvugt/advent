@@ -48,39 +48,52 @@ public class Graph {
         return null;
     }
 
-    public Paths findPaths() {
-        HashMap<String, Integer> visited = new HashMap<>();
-        return buildPath(new Paths(), getNode("start"), visited);
+    public Paths findPaths(boolean part1) {
+        return buildPath2(new Paths(), getNode("start"), new ArrayList<>(), part1);
     }
 
-    private Paths buildPath(Paths p, Node cNode, HashMap<String, Integer> hm) {
+    private Paths buildPath(Paths p, Node cNode, List<String> preVisited) {
 
         if (cNode.end) {
             p.cNode = cNode;
             return p;
         }
 
-        HashMap<String, Integer> visited = new HashMap<>(hm);
-        if (visited.containsKey(cNode.name)) {
-            visited.put(cNode.name, 2);
-        } else {
-            visited.put(cNode.name, 1);
-        }
+        List<String> visited = new ArrayList<>(preVisited);
+        visited.add(cNode.name);
 
         for (Node n : cNode.adjNodes) {
-            if (!visited.containsKey(n.name)) {
-
-                p.paths.add(buildPath(new Paths(n), n, visited));
-
-            } else {
-                if (cNode.bigNode && visited.get(cNode.name) != 2) {
-                    p.paths.add(buildPath(new Paths(n), n, visited));
-                }
-            }
+            if (!n.start && !(!n.bigNode && visited.contains(n.name))) p.paths.add(buildPath(new Paths(n), n, visited));
         }
+
+        p.cNode = cNode;
 
         return p;
     }
 
+    //TODO: merge functions
+    private Paths buildPath2(Paths p, Node cNode, List<String> preVisited, boolean visitedTwice) {
+
+        if (cNode.end) {
+            p.cNode = cNode;
+            return p;
+        }
+
+        List<String> visited = new ArrayList<>(preVisited);
+        visited.add(cNode.name);
+
+        for (Node n : cNode.adjNodes) {
+            if (!n.start) {
+                if (n.bigNode || !visited.contains(n.name)) {
+                    p.paths.add(buildPath2(new Paths(n), n, visited, visitedTwice));
+                } else if (visited.contains(n.name) && !visitedTwice) {
+                    p.paths.add(buildPath2(new Paths(n), n, visited, true));
+                }
+            }
+        }
+        p.cNode = cNode;
+
+        return p;
+    }
 
 }

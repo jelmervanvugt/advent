@@ -15,13 +15,11 @@ public class Day12 {
         Graph graph = ap.day12();
 
         System.out.println("Solution day12 (part 1): " + part1(graph));
-//        System.out.println("Solution day10 (part 2): " + part2(input));
+        System.out.println("Solution day12 (part 2): " + part2(graph));
     }
 
     private static int part1(Graph graph) {
-
-        Paths paths = graph.findPaths();
-
+        Paths paths = graph.findPaths(true);
         return calcValidPaths(paths);
     }
 
@@ -45,8 +43,9 @@ public class Day12 {
     }
 
 
-    private static int part2(List<Syntax> input) {
-        return 0;
+    private static int part2(Graph graph) {
+        Paths paths = graph.findPaths(false);
+        return calcValidPaths(paths);
     }
 
 
