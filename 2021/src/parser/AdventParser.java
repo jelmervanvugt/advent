@@ -1,6 +1,8 @@
 package parser;
 
 import day10.Syntax;
+import day12.Graph;
+import day12.Node;
 import day2.Command;
 import day4.BingoChart;
 import day5.Line;
@@ -191,15 +193,26 @@ public class AdventParser {
         int[][] input = new int[10][10];
         int x = 0;
 
-        while(s.hasNextLine()) {
+        while (s.hasNextLine()) {
 
-           char[] tmp = s.nextLine().toCharArray();
+            char[] tmp = s.nextLine().toCharArray();
 
-           for(int y = 0; y < tmp.length; y++) {
-               input[x][y] = Integer.parseInt(String.valueOf(tmp[y]));
-           }
-           x++;
+            for (int y = 0; y < tmp.length; y++) {
+                input[x][y] = Integer.parseInt(String.valueOf(tmp[y]));
+            }
+            x++;
         }
         return input;
+    }
+
+    public Graph day12() {
+
+        Graph graph = new Graph();
+
+        while (s.hasNextLine()) {
+            String[] tmp = s.nextLine().split("-");
+            graph.addEdge(tmp[0], tmp[1]);
+        }
+        return graph;
     }
 }
