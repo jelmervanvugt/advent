@@ -33,8 +33,18 @@ class Parser(
         val strategy = ArrayList<String>()
 
         while (scanner.hasNextLine()) {
-            strategy.add(scanner.nextLine().replace(" ",""))
+            strategy.add(scanner.nextLine().replace(" ", ""))
         }
         return strategy
+    }
+
+    fun day3(): List<String> {
+
+        val rucksacks = ArrayList<String>()
+
+        while (scanner.hasNextLine()) {
+            rucksacks.add(scanner.nextLine())
+        }
+        return rucksacks
     }
 }
