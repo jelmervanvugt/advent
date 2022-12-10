@@ -1,7 +1,6 @@
-import day01.Day1
-import java.sql.DriverManager.println
+import day02.Day02
 
 fun main() {
-    val d = Day1()
+    val d = Day02()
     d.solvePt2()
 }

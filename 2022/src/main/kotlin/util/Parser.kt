@@ -27,4 +27,14 @@ class Parser(
         }
         return elves
     }
+
+    fun day2(): List<String> {
+
+        val strategy = ArrayList<String>()
+
+        while (scanner.hasNextLine()) {
+            strategy.add(scanner.nextLine().replace(" ",""))
+        }
+        return strategy
+    }
 }
