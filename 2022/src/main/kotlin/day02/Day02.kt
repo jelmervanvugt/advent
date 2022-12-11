@@ -3,7 +3,7 @@ package day02
 import util.Day
 import util.Parser
 
-class Day02(private val parser: Parser = Parser("day02"), private val input: List<String> = parser.day2()) : Day {
+class Day02(private val parser: Parser = Parser("day02"), private val input: List<String> = parser.day02()) : Day {
 
     private val scores = mapOf(
         "AY" to 6,

@@ -10,7 +10,7 @@ class Parser(
     private val scanner: Scanner = Scanner(file)
 ) {
 
-    fun day1(): List<List<Int>> {
+    fun day01(): List<List<Int>> {
         val elves = ArrayList<List<Int>>()
         var calories = ArrayList<Int>()
 
@@ -28,7 +28,7 @@ class Parser(
         return elves
     }
 
-    fun day2(): List<String> {
+    fun day02(): List<String> {
 
         val strategy = ArrayList<String>()
 
@@ -38,7 +38,7 @@ class Parser(
         return strategy
     }
 
-    fun day3(): List<String> {
+    fun day03(): List<String> {
 
         val rucksacks = ArrayList<String>()
 
@@ -46,5 +46,15 @@ class Parser(
             rucksacks.add(scanner.nextLine())
         }
         return rucksacks
+    }
+
+    fun day04(): List<List<Int>> {
+
+        val pairs = ArrayList<ArrayList<Int>>()
+
+        while (scanner.hasNextLine()) {
+            pairs.add(scanner.nextLine().split("-", ",").map { it.toInt() } as ArrayList<Int>)
+        }
+        return pairs
     }
 }

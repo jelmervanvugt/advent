@@ -3,7 +3,7 @@ package day01
 import util.Day
 import util.Parser
 
-class Day01(private val parser: Parser = Parser("day01"), private val input: List<List<Int>> = parser.day1()) : Day {
+class Day01(private val parser: Parser = Parser("day01"), private val input: List<List<Int>> = parser.day01()) : Day {
 
     override fun solvePt1() {
 

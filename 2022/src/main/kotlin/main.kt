@@ -1,6 +1,6 @@
-import day03.Day03
+import day04.Day04
 
 fun main() {
-    val d = Day03()
+    val d = Day04()
     d.solvePt2()
 }

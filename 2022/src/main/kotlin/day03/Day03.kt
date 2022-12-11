@@ -3,7 +3,7 @@ package day03
 import util.Day
 import util.Parser
 
-class Day03(private val parser: Parser = Parser("day03"), private val input: List<String> = parser.day3()) : Day {
+class Day03(private val parser: Parser = Parser("day03"), private val input: List<String> = parser.day03()) : Day {
 
     private val alphabet = 'a'..'z'
 
