@@ -57,4 +57,14 @@ class Parser(
         }
         return pairs
     }
+
+    fun day05(): List<String> {
+
+        val crateInput = ArrayList<String>()
+
+        while (scanner.hasNextLine()) {
+           crateInput.add(scanner.nextLine())
+        }
+        return crateInput
+    }
 }
