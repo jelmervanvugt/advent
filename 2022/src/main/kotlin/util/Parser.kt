@@ -67,4 +67,7 @@ class Parser(
         }
         return crateInput
     }
+    fun day06(): String {
+        return scanner.nextLine()
+    }
 }
