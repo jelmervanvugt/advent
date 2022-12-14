@@ -82,4 +82,14 @@ class Parser(
         }
         return commands
     }
+
+    fun day08(): List<List<Int>> {
+
+        val grid = ArrayList<List<Int>>()
+
+        while (scanner.hasNextLine()) {
+            grid.add(scanner.nextLine().map { it.toString().toInt() })
+        }
+        return grid
+    }
 }
