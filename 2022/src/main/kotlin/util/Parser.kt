@@ -2,6 +2,7 @@ package util
 
 import java.io.File
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Parser(
     private val dayName: String,
@@ -63,11 +64,22 @@ class Parser(
         val crateInput = ArrayList<String>()
 
         while (scanner.hasNextLine()) {
-           crateInput.add(scanner.nextLine())
+            crateInput.add(scanner.nextLine())
         }
         return crateInput
     }
+
     fun day06(): String {
         return scanner.nextLine()
+    }
+
+    fun day07(): List<List<String>> {
+
+        val commands = ArrayList<List<String>>()
+
+        while (scanner.hasNextLine()) {
+            commands.add(scanner.nextLine().split(" "))
+        }
+        return commands
     }
 }
