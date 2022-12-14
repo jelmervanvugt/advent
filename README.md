@@ -1,2 +1,2 @@
-# advent
-my solutions for advent
+# advent of code
+my solutions for aoc
