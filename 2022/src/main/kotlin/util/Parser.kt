@@ -92,4 +92,15 @@ class Parser(
         }
         return grid
     }
+
+    fun day09(): List<List<String>> {
+
+        val moves = ArrayList<List<String>>()
+
+        while(scanner.hasNextLine()) {
+            val move = scanner.nextLine().split(" ")
+            moves.add(listOf(move[0], move[1]))
+        }
+        return moves
+    }
 }
