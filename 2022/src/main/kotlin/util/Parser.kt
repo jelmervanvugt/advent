@@ -97,10 +97,25 @@ class Parser(
 
         val moves = ArrayList<List<String>>()
 
-        while(scanner.hasNextLine()) {
+        while (scanner.hasNextLine()) {
             val move = scanner.nextLine().split(" ")
             moves.add(listOf(move[0], move[1]))
         }
         return moves
+    }
+
+    fun day10(): List<List<String>> {
+
+        val instructions = ArrayList<List<String>>()
+
+        while (scanner.hasNextLine()) {
+            val instruction = scanner.nextLine().split(" ")
+            if (instruction.size == 2) {
+                instructions.add(listOf(instruction[0], instruction[1]))
+            } else {
+                instructions.add(listOf(instruction[0]))
+            }
+        }
+        return instructions
     }
 }
