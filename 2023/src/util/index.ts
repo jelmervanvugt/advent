@@ -16,4 +16,43 @@ const splitOnNewLine = (input: string): string[] => {
   return input.split('\n');
 };
 
-export { getRawInput, splitOnNewLine };
+const day3Offsets = [
+  [
+    [-1, -1],
+    [-1, 0],
+    [-1, 1],
+    [0, -1],
+    [0, 1],
+    [1, -1],
+    [1, 0],
+    [1, 1],
+  ],
+  [
+    [-1, -1],
+    [-1, 0],
+    [-1, 1],
+    [-1, 2],
+    [0, -1],
+    [0, 2],
+    [1, -1],
+    [1, 0],
+    [1, 1],
+    [1, 2],
+  ],
+  [
+    [-1, -1],
+    [-1, 0],
+    [-1, 1],
+    [-1, 2],
+    [-1, 3],
+    [0, -1],
+    [0, 3],
+    [1, -1],
+    [1, 0],
+    [1, 1],
+    [1, 2],
+    [1, 3],
+  ],
+];
+
+export { getRawInput, splitOnNewLine, day3Offsets };
