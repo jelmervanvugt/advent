@@ -16,6 +16,10 @@ const splitOnNewLine = (input: string): string[] => {
   return input.split('\n');
 };
 
+const splitOnWhitespace = (input: string): string[] => {
+  return input.split(/\n\n/);
+};
+
 const day3Offsets = [
   [
     [-1, -1],
@@ -55,4 +59,4 @@ const day3Offsets = [
   ],
 ];
 
-export { getRawInput, splitOnNewLine, day3Offsets };
+export { getRawInput, splitOnNewLine, splitOnWhitespace, day3Offsets };
