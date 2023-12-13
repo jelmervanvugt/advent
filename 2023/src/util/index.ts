@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const getRawInput = (day: string): string => {
-  const inputPath = path.join(__dirname, `../${day}/input.txt`);
+  const inputPath = path.join(__dirname, `../${day}/input`);
 
   try {
     return fs.readFileSync(inputPath, 'utf-8');
