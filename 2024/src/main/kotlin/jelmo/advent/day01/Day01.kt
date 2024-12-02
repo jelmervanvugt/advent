@@ -1,6 +1,7 @@
 package jelmo.advent.day01
 
-import jelmo.advent.Day
+import jelmo.advent.util.Day
+import jelmo.advent.util.Util
 import org.springframework.stereotype.Service
 import kotlin.math.abs
 
@@ -28,19 +29,9 @@ class Day01 : Day {
         return Pair(oddIndices.map { it.value }.sorted(), evenIndices.map { it.value }.sorted())
     }
 
-
     private fun calculateTotalDistance(locations1: List<Int>, locations2: List<Int>): Int =
         locations1.zip(locations2).sumOf { (loc1, loc2) -> abs(loc1 - loc2) }
 
-
-    override fun readInput(): List<Int> {
-        val resource = javaClass.classLoader.getResourceAsStream("input/day01")
-            ?: throw IllegalArgumentException("Input file not found.")
-
-        return resource.bufferedReader().useLines { lines ->
-            lines.flatMap { line ->
-                line.split("\\s+".toRegex()).mapNotNull { it.toIntOrNull() }
-            }.toList()
-        }
-    }
+    override fun readInput(): List<Int> =
+        Util.convertInputToIntList(Util.getInputStream("day01"))
 }

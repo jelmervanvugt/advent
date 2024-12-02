@@ -1,7 +1,7 @@
-package jelmo.advent
+package jelmo.advent.util
 
 interface Day {
-    fun readInput(): Any
     fun solvePart1(): Any
     fun solvePart2(): Any
+    fun readInput(): Any
 }
