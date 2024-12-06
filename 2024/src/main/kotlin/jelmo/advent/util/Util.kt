@@ -24,5 +24,8 @@ class Util {
                         .mapNotNull { it.toIntOrNull() }
                 }.toList()
             }
+
+        fun converInputToStringList(inputStream: InputStream): List<String> =
+            inputStream.bufferedReader().lines().toList()
     }
 }
