@@ -66,36 +66,38 @@ fn merge_ranges(r1: &RangeInclusive<i64>, r2: &RangeInclusive<i64>) -> RangeIncl
 
 #[cfg(test)]
 mod tests {
+    use crate::utils::load_input_file;
     use super::*;
-    use crate::utils;
 
     #[test]
     fn test_pt1_example() {
-        let mut ranges = Vec::new();
-        let mut ids = Vec::new();
-
-        utils::load_input_file("day05/example_input")
-            .lines()
-            .for_each(|l| {
-                if l.contains('-') {
-                    let range: Vec<i64> = l
-                        .split('-')
-                        .map(|r| r.to_string().parse::<i64>().unwrap())
-                        .collect();
-                    ranges.push(range[0]..=range[1]);
-                } else if !l.is_empty() {
-                    ids.push(l.parse::<i64>().unwrap());
-                }
-            });
+        let (ranges, ids) = parse_input("day05/example_input");
         assert_eq!(pt1(ranges, ids), 3);
     }
 
     #[test]
     fn test_pt1() {
+        let (ranges, ids) = parse_input("day05/input");
+        assert_eq!(pt1(ranges, ids), 643);
+    }
+
+    #[test]
+    fn test_pt2_example() {
+        let (mut ranges, ids) = parse_input("day05/example_input");
+        assert_eq!(pt2(&mut ranges), 14);
+    }
+
+    #[test]
+    fn test_pt2() {
+        let (mut ranges, ids) = parse_input("day05/input");
+        assert_eq!(pt2(&mut ranges), 342018167474526);
+    }
+
+    fn parse_input(filename: &str) -> (Vec<RangeInclusive<i64>>, Vec<i64>) {
         let mut ranges = Vec::new();
         let mut ids = Vec::new();
 
-        utils::load_input_file("day05/input").lines().for_each(|l| {
+        load_input_file(filename).lines().for_each(|l| {
             if l.contains('-') {
                 let range: Vec<i64> = l
                     .split('-')
@@ -106,40 +108,6 @@ mod tests {
                 ids.push(l.parse::<i64>().unwrap());
             }
         });
-        assert_eq!(pt1(ranges, ids), 643);
-    }
-
-    #[test]
-    fn test_pt2_example() {
-        let mut ranges = Vec::new();
-
-        utils::load_input_file("day05/example_input")
-            .lines()
-            .for_each(|l| {
-                if l.contains('-') {
-                    let range: Vec<i64> = l
-                        .split('-')
-                        .map(|r| r.to_string().parse::<i64>().unwrap())
-                        .collect();
-                    ranges.push(range[0]..=range[1]);
-                }
-            });
-        assert_eq!(pt2(&mut ranges), 14);
-    }
-
-    #[test]
-    fn test_pt2() {
-        let mut ranges = Vec::new();
-
-        utils::load_input_file("day05/input").lines().for_each(|l| {
-            if l.contains('-') {
-                let range: Vec<i64> = l
-                    .split('-')
-                    .map(|r| r.to_string().parse::<i64>().unwrap())
-                    .collect();
-                ranges.push(range[0]..=range[1]);
-            }
-        });
-        assert_eq!(pt2(&mut ranges), 342018167474526);
+        (ranges, ids)
     }
 }
