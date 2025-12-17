@@ -55,9 +55,18 @@ fn solve(junctions: &mut Vec<Junction>, max_connections: i64) -> i64 {
                 }
             }
         }
+
+        if is_full_circuit(junctions) {
+            return junctions[first_idx].x * junctions[second_idx].x;
+        }
     }
 
     calculate_result(junctions)
+}
+
+fn is_full_circuit(junctions: &mut Vec<Junction>) -> bool {
+    let first_circuit = junctions[0].circuit;
+    first_circuit.is_some() && junctions.iter().all(|j| j.circuit == first_circuit)
 }
 
 fn calculate_result(junctions: &Vec<Junction>) -> i64 {
@@ -102,6 +111,18 @@ mod tests {
     fn test_pt1() {
         let mut junctions = parse_junctions("day08/input");
         assert_eq!(solve(&mut junctions, 1000), 135169);
+    }
+
+    #[test]
+    fn test_pt2_example() {
+        let mut junctions = parse_junctions("day08/example_input");
+        assert_eq!(solve(&mut junctions, i64::MAX), 25272);
+    }
+
+    #[test]
+    fn test_pt2() {
+        let mut junctions = parse_junctions("day08/input");
+        assert_eq!(solve(&mut junctions, i64::MAX), 25272);
     }
 
     fn parse_junctions(input: &str) -> Vec<Junction> {
